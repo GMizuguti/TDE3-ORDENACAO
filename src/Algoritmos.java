@@ -32,7 +32,6 @@ public class Algoritmos {
             for (int i = 0; i < vetor.length - distancia; i++) {
                 lacos++;
                 if (vetor[i] > vetor[i + distancia]) {
-                    // Swap elements
                     int temp = vetor[i];
                     vetor[i] = vetor[i + distancia];
                     vetor[i + distancia] = temp;
@@ -42,8 +41,11 @@ public class Algoritmos {
             }
         }
         System.out.println("\nComb Sort");
-        System.out.println("Vetor ordenado = " + Arrays.toString(vetor));
-        System.out.println("Trocas = " + trocas);
+        System.out.print("Vetor ordenado = [" + vetor[0]);
+        for (int i = 1; i < vetor.length; i++) {
+            System.out.print(", "+vetor[i]);
+        }
+        System.out.println("] \nTrocas = " + trocas);
         System.out.println("Lacos = " + lacos + "\n");
     }
 
@@ -53,18 +55,24 @@ public class Algoritmos {
         lacos = 0;
         while (i < vetor.length) {
             lacos++;
-            if (i == 0 || vetor[i-1] <= vetor[i]) {i++;}
+            if (i == 0 || vetor[i-1] <= vetor[i]) {
+                i++;
+            }
             else {
                 int temp = vetor[i];
                 vetor[i] = vetor[i-1];
                 vetor[--i] = temp;
                 trocas++;
+
             }
         }
 
         System.out.println("Gnome Sort");
-        System.out.println("Vetor ordenado = " + Arrays.toString(vetor));
-        System.out.println("Trocas = " + trocas);
+        System.out.print("Vetor ordenado = [" + vetor[0]);
+        for (int j= 1; j < vetor.length; j++) {
+            System.out.print(", "+vetor[j]);
+        }
+        System.out.println("] \nTrocas = " + trocas);
         System.out.println("Lacos = " + lacos + "\n");
     }
 
@@ -117,9 +125,13 @@ public class Algoritmos {
         }
 
 
-        System.out.println("======= Bucket Sort =======");
-        System.out.println("Vetor ordenado = " + Arrays.toString(vetor));
-        System.out.println("Trocas = " + trocas);
+
+        System.out.println("Bucket Sort");
+        System.out.print("Vetor ordenado = [" + vetor[0]);
+        for (int i = 1; i < vetor.length; i++) {
+            System.out.print(", "+vetor[i]);
+        }
+        System.out.println("] \nTrocas = " + trocas);
         System.out.println("Lacos = " + lacos + "\n");
     }
 
@@ -146,37 +158,48 @@ public class Algoritmos {
             }
         }
         System.out.println("Bubble Sort");
-        System.out.println("Vetor ordenado = " + Arrays.toString(vetor));
-        System.out.println("Trocas = " + trocas);
+        System.out.print("Vetor ordenado = [" + vetor[0]);
+        for (int i = 1; i < vetor.length; i++) {
+            System.out.print(", "+vetor[i]);
+        }
+        System.out.println("] \nTrocas = " + trocas);
         System.out.println("Lacos = " + lacos + "\n");
     }
 
     public void selectionSort() {
         trocas = 0;
         lacos = 0;
-
-        for (int inicio = 0; inicio < vetor.length - 1; inicio++) {
-            int menorValor = inicio;
+        int temp;
+        int minimoAtual;
+        for (int i = 0; i < vetor.length-1; i++) {
+            minimoAtual = i;
             lacos++;
 
-            for (int i = inicio + 1; i < vetor.length; i++) {
+            for (int j = i + 1; j < vetor.length; j++) {
                 lacos++;
-                if (vetor[i] < vetor[menorValor]) {
-                    menorValor = i;
+                if (vetor[j] < vetor[minimoAtual]) {
+                    minimoAtual = j;
                 }
             }
 
-            int temp = vetor[inicio];
-            vetor[inicio] = vetor[menorValor];
-            vetor[menorValor] = temp;
-            trocas++;
+            if (minimoAtual != i) {
+                temp = vetor[minimoAtual];
+                vetor[minimoAtual] = vetor[i];
+                vetor[i] = temp;
+                trocas++;
+            }
+
 
         }
         System.out.println("Selection Sort");
-        System.out.println("Vetor ordenado = " + Arrays.toString(vetor));
-        System.out.println("Trocas = " + trocas);
+        System.out.print("Vetor ordenado = [" + vetor[0]);
+        for (int i = 1; i < vetor.length; i++) {
+            System.out.print(", "+vetor[i]);
+        }
+        System.out.println("] \nTrocas = " + trocas);
         System.out.println("Lacos = " + lacos + "\n");
     }
+
 
     public void cocktail() {
         int inicio = 0;
@@ -192,7 +215,6 @@ public class Algoritmos {
             for (int i = inicio; i < limite; i++) {
                 lacos++;
                 if (vetor[i] > vetor[i + 1]) {
-                    // Swap elements
                     int temp = vetor[i];
                     vetor[i] = vetor[i + 1];
                     vetor[i + 1] = temp;
@@ -205,7 +227,7 @@ public class Algoritmos {
                 break;
             }
             limite--;
-
+            trocado = 0;
             for (int i = limite - 1; i >= inicio; i--) {
                 lacos++;
                 if (vetor[i] > vetor[i + 1]) {
@@ -219,11 +241,11 @@ public class Algoritmos {
             inicio++;
         }
         System.out.println("Cocktail Sort");
-        System.out.println("Vetor ordenado = " + Arrays.toString(vetor));
-        System.out.println("Trocas = " + trocas);
+        System.out.print("Vetor ordenado = [" + vetor[0]);
+        for (int i = 1; i < vetor.length; i++) {
+            System.out.print(", "+vetor[i]);
+        }
+        System.out.println("] \nTrocas = " + trocas);
         System.out.println("Lacos = " + lacos + "\n");
-
     }
-
-
 }

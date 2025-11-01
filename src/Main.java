@@ -30,6 +30,7 @@ public class Main {
         Algoritmos algoritmoCocktail = new Algoritmos(vetor1);
         algoritmoCocktail.cocktail();
 
+        System.out.println("-------------------------------------");
 
         algoritmoComb = new Algoritmos(vetor2);
         algoritmoComb.comb();
@@ -54,6 +55,7 @@ public class Main {
         algoritmoCocktail = new Algoritmos(vetor2);
         algoritmoCocktail.cocktail();
 
+        System.out.println("-------------------------------------");
 
         algoritmoComb = new Algoritmos(vetor3);
         algoritmoComb.comb();
@@ -77,5 +79,6 @@ public class Main {
         vetor3 = new int[]{99, 85, 73, 60, 50, 40, 35, 30, 25, 20, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6};
         algoritmoCocktail = new Algoritmos(vetor3);
         algoritmoCocktail.cocktail();
+
     }
 }
